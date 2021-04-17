@@ -4,7 +4,6 @@ The only requirements for this assignement are Spacy and the pipeline en_core_we
 
 - **using pip:**
   ```
-  console.log(pip install -U pip setuptools wheel)
   pip install -U spacy
   python -m spacy download en_core_web_sm
   ```
