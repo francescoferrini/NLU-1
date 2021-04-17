@@ -26,12 +26,12 @@ def subtreeExtraction(sentence):
     doc = nlp(sentence)
     my_dict = {}
     
-    for token_pos in (range(len(doc))):
-        my_dict[doc[token_pos]] = []
-        give_subtree = doc[token_pos].subtree
+    for token in doc:
+        my_dict[token] = []
+        give_subtree = token.subtree
         for sent in give_subtree:
-            if sent.text!=doc[token_pos].text:
-                my_dict[doc[token_pos]].append(sent.text)
+            if sent.text!=token.text:
+                my_dict[token].append(sent.text)
 
     return my_dict
 
@@ -68,12 +68,25 @@ def extractSpanInfo(sentence):
     }
     
     for token in doc:
+        list = []
         if(token.dep_ == 'nsubj' or token.dep_ == 'nsubjpass'):
-            my_dict["subj"].append(token.text)
-        elif (token.dep_ == 'dobj'):
-            my_dict["dobj"].append(token.text)
-        elif (token.dep_ == 'iobj'):
-            my_dict["iobj"].append(tokrn.text)
+            subtree = token.subtree
+            for word in subtree:
+                list.append(word.text)
+            list = " ".join(list)
+            my_dict["subj"].append(list)
+        elif(token.dep_ == 'dobj'):
+            subtree = token.subtree
+            for word in subtree:
+                list.append(word.text)
+            list = " ".join(list)
+            my_dict["dobj"].append(list)
+        elif(token.dep_ == 'dobj' or token.dep_ == 'iobj'):
+            subtree = token.subtree
+            for word in subtree:
+                list.append(word.text)
+            list = " ".join(list)
+            my_dict["iobj"].append(list)
             
     return my_dict
 
