@@ -49,13 +49,7 @@ def checkSubtree(sentence, word_list):
 
 ''' Function that identifies head of a span, given its tokens'''
 def spanHead(span):
-    span_length = len(span)
-    span_as_doc = span.as_doc()
-    for token in span_as_doc:
-        if(token.text == token.head.text):
-            head = token.text
-    return head
-    
+    return span.root.text
 
 ''' Function  that extracts sentence subject, direct object and indirect object spans'''
 def extractSpanInfo(sentence):
