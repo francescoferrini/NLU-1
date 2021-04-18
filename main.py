@@ -105,10 +105,6 @@ print("The sentence is: ", example)
 
 dict = subtreeExtraction(example)
 print(dict)
-
-#subtree_list = subtreeExtraction(example)
-#for list in subtree_list:
-    #print(list)
     
 print("\n---------- Exercise3 ----------")
 
