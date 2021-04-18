@@ -75,7 +75,7 @@ def extractSpanInfo(sentence):
                 list.append(word.text)
             list = " ".join(list)
             my_dict["dobj"].append(list)
-        elif(token.dep_ == 'dobj' or token.dep_ == 'iobj'):
+        elif(token.dep_ == 'dative'):
             subtree = token.subtree
             for word in subtree:
                 list.append(word.text)
