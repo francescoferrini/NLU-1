@@ -37,12 +37,12 @@ def subtreeExtraction(sentence):
 
 
 '''  Function that checks if a given list of tokens (segment of a sentence) forms a subtree'''
-def checkSubtree(sentence, token_list):
+def checkSubtree(sentence, word_list):
     doc = nlp(sentence)
-    
-    for i in range(len(doc)):
-        give_subtree = doc[i].subtree
-        if ([t.text for t in give_subtree] == token_list):
+
+    for token in doc:
+        give_subtree = token.subtree
+        if ([t.text for t in give_subtree] == word_list):
             return True
     return False
         
@@ -110,12 +110,12 @@ print("\n---------- Exercise3 ----------")
 
 print("The sentence is: ", example)
 
-token_list =["The", "fire"]
+word_list =["The", "fire"]
 
-if checkSubtree(example, token_list) == True:
-    print("The token list", token_list, "forms a subtree")
+if checkSubtree(example, word_list) == True:
+    print("The word list", word_list, "forms a subtree")
 else:
-    print("The token list", token_list, "doesn't form a subtree")
+    print("The word list", word_list, "doesn't form a subtree")
     
 print("\n---------- Exercise4 ----------")
 
