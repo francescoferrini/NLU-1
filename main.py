@@ -2,38 +2,34 @@ import spacy
 nlp = spacy.load('en_core_web_sm')
 
 ''' Function that expracts a path of dependency relations from the ROOT to a token'''
-def getDependency(sentence):
+def getDependency(sentence):   
     doc = nlp(sentence)
-    dep_list = []
     
+    dep_list = []
     for token in doc:
         list1 = []
-        while(token.head != token):
-            list1.append(token.text)
-            list1.append(token.dep_+":")
-            list1.append("|")
-            token = token.head
-        list1.append(token.head)
-        list1.append("ROOT:")
+        for anc in token.ancestors:
+            list1.append(anc.text)
+            list1.append(anc.dep_)
         list1.reverse()
+        list1.append(token.dep_)
+        list1.append(token.text)
         dep_list.append(list1)
-        
-    return dep_list 
+    return dep_list
 
 
 ''' Function that extracts subtree of a dependents given a token'''
 def subtreeExtraction(sentence):
     doc = nlp(sentence)
-    my_dict = {}
-    
+    path_list = []
     for token in doc:
-        my_dict[token] = []
+        list1 = []
         give_subtree = token.subtree
         for sent in give_subtree:
             if sent.text!=token.text:
-                my_dict[token].append(sent.text)
-
-    return my_dict
+                list1.append(sent.text)
+        path_list.append(list1)
+    return path_list
 
 
 '''  Function that checks if a given list of tokens (segment of a sentence) forms a subtree'''
