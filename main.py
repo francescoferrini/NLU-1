@@ -121,61 +121,6 @@ print("This is the span: ", span)
 span_head = spanHead(span)
 print("The head is: ", span_head)
 
-print("\n---------- Exercise5 ----------")
-
-example3 = "Carla bought an iphone and gave it to her boyfriend"
-print("The sentence is: ", example3)
-
-dict = extractSpanInfo(example3)
-print(dict)
-print("The sentence is: ", example)
-
-word_list =["The", "fire"]
-
-if checkSubtree(example, word_list) == True:
-    print("The word list", word_list, "forms a subtree")
-else:
-    print("The word list", word_list, "doesn't form a subtree")
-    
-print("\n---------- Exercise4 ----------")
-
-example2 = "Bills on ports and immigration were submitted by Brownback Republican Senator of Kansas"
-print("The sentence is: ", example2)
-
-doc = nlp(example2)
-span = doc[7:12]
-print("This is the span: ", span)
-
-span_head = spanHead(span)
-print("The head is: ", span_head)
-
-print("\n---------- Exercise5 ----------")
-
-example3 = "Carla bought an iphone and gave it to her boyfriend"
-print("The sentence is: ", example3)
-
-dict = extractSpanInfo(example3)
-print(dict)
-print("The sentence is: ", example)
-
-word_list =["The", "fire"]
-
-if checkSubtree(example, word_list) == True:
-    print("The word list", word_list, "forms a subtree")
-else:
-    print("The word list", word_list, "doesn't form a subtree")
-    
-print("\n---------- Exercise4 ----------")
-
-example2 = "Bills on ports and immigration were submitted by Brownback Republican Senator of Kansas"
-print("The sentence is: ", example2)
-
-doc = nlp(example2)
-span = doc[7:12]
-print("This is the span: ", span)
-
-span_head = spanHead(span)
-print("The head is: ", span_head)
 
 print("\n---------- Exercise5 ----------")
 
